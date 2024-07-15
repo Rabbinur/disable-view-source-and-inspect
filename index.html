@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View ssource and inspect disble </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        -webkit-user-select: none; /* Disable text selection */
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+      });
+
+      // Disable certain keyboard shortcuts
+      document.addEventListener('keydown', function (e) {
+        // Disable Ctrl+U, Ctrl+Shift+I, F12, and Ctrl+Shift+J
+        if (
+          (e.ctrlKey && e.key === 'u') || 
+          (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+          (e.key === 'F12') || 
+          (e.ctrlKey && e.shiftKey && e.key === 'J')
+        ) {
+          e.preventDefault();
+        }
+      });
+    </script>
+  </body>
+</html>
